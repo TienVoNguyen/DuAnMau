@@ -149,11 +149,11 @@ public class MainFrm extends javax.swing.JFrame {
         dpMain.setLayout(dpMainLayout);
         dpMainLayout.setHorizontalGroup(
             dpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 983, Short.MAX_VALUE)
+            .addGap(0, 1064, Short.MAX_VALUE)
         );
         dpMainLayout.setVerticalGroup(
             dpMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGap(0, 537, Short.MAX_VALUE)
         );
 
         jPanel4.add(dpMain, java.awt.BorderLayout.CENTER);
@@ -1009,15 +1009,15 @@ public class MainFrm extends javax.swing.JFrame {
                     InternetAddress.parse(Auth.nguoiDungHienTai.getEmail()));
 
             // Set Subject: header field
-            message.setSubject("Testing Subject");
+            message.setSubject("HỆ THỐNG ĐÀO TẠO EDUSYS");
 
             // This mail has 2 part, the BODY and the embedded image
             MimeMultipart multipart = new MimeMultipart("related");
 
             // first part (the html)
             BodyPart messageBodyPart = new MimeBodyPart();
-            String htmlText = "<H1>Your QR_CODE</H1><img src=\"cid:image\">";
-            messageBodyPart.setContent(htmlText, "text/html");
+            String htmlText = "<H1>Hello, " +  Auth.nguoiDungHienTai.getHoTen() +"</H1>" + "\n <H1>Your QR_CODE</H1><img src=\"cid:image\">";
+            messageBodyPart.setContent(htmlText, "text/html; charset=utf-8");
             // add it
             multipart.addBodyPart(messageBodyPart);
 

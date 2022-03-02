@@ -5,9 +5,12 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import mydao.CDDao;
 import mydao.KHDao;
@@ -346,7 +349,7 @@ public class QLKHFrm extends javax.swing.JInternalFrame {
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1212, Short.MAX_VALUE))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -355,15 +358,15 @@ public class QLKHFrm extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
         );
 
         pack();
@@ -549,6 +552,7 @@ public class QLKHFrm extends javax.swing.JInternalFrame {
         //load dữ liệu lên bảng theo chuyên đề
         ChuyenDe cd = (ChuyenDe) this.cbbChuyenDe.getSelectedItem();
         loadDataToTable(cd.getMaCD());
+        mouseHover();
     }
 
     public void loadDataToCBB() {
@@ -735,5 +739,72 @@ public class QLKHFrm extends javax.swing.JInternalFrame {
             return true;
         }
         return false;
+    }
+    
+    private void mouseHover() {
+        //Hiệu ứng di chuột vào các button menu
+        JButton[] btns = {btnFirst, btnLast, btnMoi, btnNext, btnSua, btnThem, btnLoadCD, btnXoa, btnpre};
+        for (JButton btn : btns) {
+
+            btn.setBackground(new Color(255, 255, 255));
+//            btn.setUI(new BasicButtonUI());
+            btn.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                                        
+                }
+
+                @Override
+                public void mousePressed(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(204,255,255));
+//                    btn.setVerticalTextPosition(1);
+//                    btn.setVerticalAlignment(3);
+//                    if (btn == btnHome) {
+//                        btn.setText("Trang Chủ");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("Chuyên Đề");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("Học Viên");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("Khoá Học");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("Người Học");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("Nhân Viên");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("Thống Kê");
+//                    }
+                }
+
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(255, 255, 255));
+//                    btn.setVerticalAlignment(2);
+//                    if (btn == btnHome) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("");
+//                    }
+                }
+            });
+        }
     }
 }

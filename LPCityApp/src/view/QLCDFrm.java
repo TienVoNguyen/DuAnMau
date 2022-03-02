@@ -7,9 +7,11 @@ package view;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import mydao.CDDao;
@@ -24,11 +26,12 @@ import xhelper.MyValidate;
  * @author NTV
  */
 public class QLCDFrm extends javax.swing.JInternalFrame {
-    
+
     private DefaultTableModel dtm;
     private BaseDaoInterface dao;
     private int index;
     private JFileChooser fileChooser;
+
     /**
      * Creates new form QLCDFrm
      */
@@ -84,17 +87,18 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
         setResizable(true);
         setPreferredSize(new java.awt.Dimension(588, 240));
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.setLayout(new java.awt.BorderLayout(10, 0));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 153, 0), 2));
         jPanel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel2.setPreferredSize(new java.awt.Dimension(100, 109));
-        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(160, 209));
+        jPanel2.setLayout(new java.awt.GridLayout());
 
         lblHinh.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblHinh.setForeground(new java.awt.Color(255, 51, 51));
         lblHinh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHinh.setText("Logo");
+        lblHinh.setText("Nhấp để chọn\n Logo");
+        lblHinh.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblHinh.setMinimumSize(new java.awt.Dimension(0, 0));
         lblHinh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -287,7 +291,7 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -358,15 +362,15 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
         );
 
         pack();
@@ -375,6 +379,13 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
     private void tblQLCDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblQLCDMouseClicked
         // TODO add your handling code here:
         if (mouseClicked());
+        System.out.println(lblHinh.getIcon().toString());
+        if (!lblHinh.getIcon().toString().isEmpty()) {
+            lblHinh.setText("");
+            return;
+        }
+            lblHinh.setText("Nhấp để chọn logo");
+        
     }//GEN-LAST:event_tblQLCDMouseClicked
 
     private void txtTimkiemFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTimkiemFocusGained
@@ -392,7 +403,7 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
 
     private void txtTimkiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimkiemKeyPressed
         // TODO add your handling code here:
-         EnterAcctions(evt);
+        EnterAcctions(evt);
     }//GEN-LAST:event_txtTimkiemKeyPressed
 
     private void btnTimkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimkiemActionPerformed
@@ -457,7 +468,7 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed
         // TODO add your handling code here:
-         clearForm();
+        clearForm();
     }//GEN-LAST:event_btnMoiActionPerformed
 
 
@@ -504,12 +515,14 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
 
         //khai báo dtm
         this.dtm = (DefaultTableModel) tblQLCD.getModel();
-
         //Load dữ liệu lên bảng
         LoadDataToTable();
-
+//        if (!lblHinh.getIcon().toString().isEmpty()) {
+//            lblHinh.setText("");
+//        }
         //khai báo filechooser
         this.fileChooser = new JFileChooser();
+        mouseHover();
     }
 
     private void LoadDataToTable() {
@@ -522,7 +535,7 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
                 setDataRow(cd);
             }
             this.index = 0;
-            updateStatus();            
+            updateStatus();
             showForm(index);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -661,6 +674,7 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
             ImageIcon icon = ImageHelper.read(file.getName());//đọc hình từ thư mục logos
             lblHinh.setIcon(icon);
             lblHinh.setToolTipText(file.getName());//giữ tên hình trong tooltop
+            lblHinh.setText("");
         }
     }
 
@@ -812,5 +826,71 @@ public class QLCDFrm extends javax.swing.JInternalFrame {
             }
         }
         return macd;
+    }
+    private void mouseHover() {
+        //Hiệu ứng di chuột vào các button menu
+        JButton[] btns = {btnFirst, btnLast, btnMoi, btnNext, btnSua, btnThem, btnTimkiem, btnXoa, btnpre};
+        for (JButton btn : btns) {
+
+            btn.setBackground(new Color(255, 255, 255));
+//            btn.setUI(new BasicButtonUI());
+            btn.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                                        
+                }
+
+                @Override
+                public void mousePressed(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(204,255,255));
+//                    btn.setVerticalTextPosition(1);
+//                    btn.setVerticalAlignment(3);
+//                    if (btn == btnHome) {
+//                        btn.setText("Trang Chủ");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("Chuyên Đề");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("Học Viên");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("Khoá Học");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("Người Học");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("Nhân Viên");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("Thống Kê");
+//                    }
+                }
+
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(255, 255, 255));
+//                    btn.setVerticalAlignment(2);
+//                    if (btn == btnHome) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("");
+//                    }
+                }
+            });
+        }
     }
 }

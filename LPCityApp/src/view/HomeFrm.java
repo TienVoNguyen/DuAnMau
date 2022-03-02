@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.event.MouseListener;
+import javax.swing.JButton;
 import xhelper.Auth;
 
 /**
@@ -18,6 +21,7 @@ public class HomeFrm extends javax.swing.JInternalFrame {
      */
     public HomeFrm() {
         initComponents();
+        mouseHover();
 
     }
 
@@ -31,17 +35,17 @@ public class HomeFrm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnChangePass = new javax.swing.JButton();
-        btnHD = new javax.swing.JButton();
-        btnInfo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         lblIDNV = new javax.swing.JLabel();
         lblRule = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnLogout = new javax.swing.JButton();
+        btnChangePass = new javax.swing.JButton();
+        btnHD = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Trang chủ");
@@ -64,8 +68,44 @@ public class HomeFrm extends javax.swing.JInternalFrame {
                 formInternalFrameOpened(evt);
             }
         });
+        getContentPane().setLayout(new java.awt.GridLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel3.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel3.setLayout(new java.awt.GridLayout(3, 0));
+
+        lblName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName.setText("Xin chào,");
+        lblName.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel3.add(lblName);
+
+        lblIDNV.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblIDNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIDNV.setText("Mã NV:");
+        lblIDNV.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel3.add(lblIDNV);
+
+        lblRule.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblRule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRule.setText("Vai trò:");
+        lblRule.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel3.add(lblRule);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo-small_1.png"))); // NOI18N
+        jLabel1.setText("DESIGNING YOUR LIFE");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel4.add(jLabel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 50));
@@ -129,72 +169,29 @@ public class HomeFrm extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnInfo);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel3.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanel3.setLayout(new java.awt.GridLayout(3, 0));
-
-        lblName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblName.setText("Xin chào,");
-        lblName.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanel3.add(lblName);
-
-        lblIDNV.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblIDNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIDNV.setText("Mã NV:");
-        lblIDNV.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanel3.add(lblIDNV);
-
-        lblRule.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblRule.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRule.setText("Vai trò:");
-        lblRule.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanel3.add(lblRule);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new java.awt.GridLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo-small_1.png"))); // NOI18N
-        jLabel1.setText("DESIGNING YOUR LIFE");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setMinimumSize(new java.awt.Dimension(0, 0));
-        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jPanel4.add(jLabel1);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 46, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,4 +251,71 @@ public class HomeFrm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRule;
     // End of variables declaration//GEN-END:variables
 
+    private void mouseHover() {
+        //Hiệu ứng di chuột vào các button menu
+        JButton[] btns = {btnChangePass, btnHD, btnInfo, btnLogout};
+        for (JButton btn : btns) {
+
+            btn.setBackground(new Color(255, 255, 255));
+//            btn.setUI(new BasicButtonUI());
+            btn.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                                        
+                }
+
+                @Override
+                public void mousePressed(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(204,255,255));
+//                    btn.setVerticalTextPosition(1);
+//                    btn.setVerticalAlignment(3);
+//                    if (btn == btnHome) {
+//                        btn.setText("Trang Chủ");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("Chuyên Đề");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("Học Viên");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("Khoá Học");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("Người Học");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("Nhân Viên");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("Thống Kê");
+//                    }
+                }
+
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(255, 255, 255));
+//                    btn.setVerticalAlignment(2);
+//                    if (btn == btnHome) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("");
+//                    }
+                }
+            });
+        }
+    }
+    
 }

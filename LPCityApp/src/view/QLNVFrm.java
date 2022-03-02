@@ -7,8 +7,10 @@ package view;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
 import mydao.NVDao;
 import myentity.NhanVien;
@@ -378,11 +380,11 @@ public class QLNVFrm extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -529,6 +531,7 @@ public class QLNVFrm extends javax.swing.JInternalFrame {
         }
         
         LoadDataToTable();
+        mouseHover();
     }
 
     private void LoadDataToTable() {
@@ -800,6 +803,73 @@ public class QLNVFrm extends javax.swing.JInternalFrame {
             btnTimkiem.setForeground(new Color(255, 0, 0));
             btnTimkiem.setText("Nhập mã nhân viên cần tìm");
 
+        }
+    }
+    
+    private void mouseHover() {
+        //Hiệu ứng di chuột vào các button menu
+        JButton[] btns = {btnFirst, btnLast, btnMoi, btnNext, btnSua, btnThem, btnTimkiem, btnXoa, btnpre};
+        for (JButton btn : btns) {
+
+            btn.setBackground(new Color(255, 255, 255));
+//            btn.setUI(new BasicButtonUI());
+            btn.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent e) {
+                                        
+                }
+
+                @Override
+                public void mousePressed(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(java.awt.event.MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(204,255,255));
+//                    btn.setVerticalTextPosition(1);
+//                    btn.setVerticalAlignment(3);
+//                    if (btn == btnHome) {
+//                        btn.setText("Trang Chủ");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("Chuyên Đề");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("Học Viên");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("Khoá Học");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("Người Học");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("Nhân Viên");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("Thống Kê");
+//                    }
+                }
+
+                @Override
+                public void mouseExited(java.awt.event.MouseEvent e) {
+                    btn.setBackground(new Color(255, 255, 255));
+//                    btn.setVerticalAlignment(2);
+//                    if (btn == btnHome) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLCD) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLHV) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLKH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNH) {
+//                        btn.setText("");
+//                    } else if (btn == btnQLNhanVien) {
+//                        btn.setText("");
+//                    } else if (btn == btnBCTK) {
+//                        btn.setText("");
+//                    }
+                }
+            });
         }
     }
 }
